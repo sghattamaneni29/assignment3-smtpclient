@@ -29,7 +29,7 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
     # Send MAIL FROM command and handle server response.
     fromMail = 'MAIL FROM:<stlsea0804@smtp.gmail.com>\r\n'
     clientSocket.send(fromMail.encode())
-    message2 = clientSocket.recv(1024)
+    message2 = clientSocket.recv(1024).decode()
     #print (message2)
 
     # Send RCPT TO command and handle server response.
@@ -44,7 +44,7 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
     # Send DATA command and handle server response.
     data = 'DATA\r\n'
     clientSocket.send(data.encode())
-    message4 = clientSocket.recv(1024)
+    message4 = clientSocket.recv(1024).decode()
     #print (message4)
     #if message4[:3] != '250':
         #print ('250 reply not received from server.')
@@ -68,7 +68,7 @@ def smtp_client(port=1025, mailserver='127.0.0.1'):
     # Send QUIT command and handle server response.
     quit = 'Quit\r\n'
     clientSocket.send(quit.encode())
-    message8 = clientSocket.recv(1024)
+    message8 = clientSocket.recv(1024).decode()
     #print (message8)
     #if message8[:3] != '250':
        # print ('250 reply not received from server.')
